@@ -292,20 +292,26 @@
                 <img data-original="images/0.png" alt="img" class="preload-image responsive-image"></a> 
         </div>
                           
-        <div class="sidebar-articles">
-            <a href="aboutus.html">
-                <img data-original="images/1.jpg" alt="img" class="preload-image responsive-image">
-                <!-- <strong>We open our arms to welcome you to Central Baptist Church!</strong>-->
-            </a>            
-            <a href="media.html">
-                <img data-original="images/2.jpg" alt="img" class="preload-image responsive-image">
-                <!--<strong>Pastor Anniversary - March 18</strong> -->
-            </a>            
-            <a href="#">
-                <img data-original="images/3.jpg" alt="img" class="preload-image responsive-image">
-                <!-- <strong>Easter Lectuce | March 14th-21st</strong> -->
-            </a>  
-        </div> 
+        <div class="sidebar-articles" id="bannerHome">
+            
+        </div>
+        <script>
+				pegaBanner();
+				function pegaBanner(id){
+					$.ajax({
+						type: "POST",
+						url: "http://www.d-zyne.com/web/content/APPS/CBC/banner.php",
+						crossDomain: true,
+						dataType: "json",
+						success: function(dataBanner){
+							$('#bannerHome').empty();
+							for(var i=0;dataBanner.length>i;i++){
+								$('#bannerHome').append(dataBanner[i]);
+							}
+						}
+					})
+				}
+			</script>
               
         <div class="content">
         <div style="margin-top: 20px; margin-bottom: 20px;">
