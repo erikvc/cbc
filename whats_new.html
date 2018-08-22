@@ -258,13 +258,13 @@
 				function pegaAnnPage(){
 					$.ajax({
 						type: "POST",
-						url: "http://www.d-zyne.com/web/content/APPS/CBC/whats_new.php",
+						url: "http://www.d-zyne.com/APPS/CBC/whats_new.php",
 						crossDomain: true,
 						dataType: "json",
 						success: function(data){
 							$("#recebeAnn").empty();
 							for(var i=0;data.length>i;i++){
-								var ann = '<div class="optmedia-whatsnew-ann"><div class="optmedia-whatsnew-header"><div class="optmedia-whatsnew-image"><img src="http://www.d-zyne.com/web/content/APPS/CBC/whats_new/'+data[i].image+'" alt=""/></div><div class="optmedia-whatsnew-title">'+data[i].title+'<br><span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;11/01/2017</span></div></div><div class="optmedia-whatsnew-text">'+data[i].text+'</div></div><div class="decoration"></div>';
+								var ann = '<div class="optmedia-whatsnew-ann"><div class="optmedia-whatsnew-header"><div class="optmedia-whatsnew-image"><img src="http://www.d-zyne.com/APPS/CBC/whats_new/'+data[i].image+'" alt=""/></div><div class="optmedia-whatsnew-title">'+data[i].title+'<br><span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;11/01/2017</span></div></div><div class="optmedia-whatsnew-text">'+data[i].text+'</div></div><div class="decoration"></div>';
 								$("#recebeAnn").append(ann);
 							}
 						}
