@@ -292,12 +292,32 @@
                 <img data-original="images/0.png" alt="img" class="preload-image responsive-image"></a> 
         </div>
                           
-        <div class="sidebar-articles" id="bannerHome">
+        <div class="sidebar-articles" id="recebeAnn">
             
         </div>
         <script>
+			    pegaAnnPage();
+				function pegaAnnPage(){
+					$.ajax({
+						type: "POST",
+						url: "http://www.d-zyne.com/APPS/CBC/banners.php",
+						crossDomain: true,
+						dataType: "json",
+						success: function(data){
+							$("#recebeAnn").empty();
+							for(var i=0;data.length>i;i++){
+								
+								$("#recebeAnn").append(data[i].image);
+							}
+						}
+					})
+				}
+				
+			</script> 
+        
+        <!--<script>
 				pegaBanner();
-				function pegaBanner(id){
+				function pegaBanner(){
 					$.ajax({
 						type: "POST",
 						url: "http://www.d-zyne.com/APPS/CBC/banner.php",
@@ -306,12 +326,15 @@
 						success: function(dataBanner){
 							$('#bannerHome').empty();
 							for(var i=0;dataBanner.length>i;i++){
-								$('#bannerHome').append(dataBanner[i]);
+								$('#bannerHome').append(dataBanner[i].title);
 							}
+						},
+						error: function(){
+							alert('Server not Working');
 						}
 					})
 				}
-			</script>
+			</script>-->
               
         <div class="content">
         <div style="margin-top: 20px; margin-bottom: 20px;">
