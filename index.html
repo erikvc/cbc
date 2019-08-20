@@ -64,33 +64,33 @@
                 Front
                 <i class="fa fa-circle"></i>
             </a>           
-            <a class="menu-item" href="http://crosscentered.org/calendar.html"><!-- active-item -->
+            <a class="menu-item" onClick="window.open('http://crosscentered.org/calendar.html','_system','location=yes');return false;" href="#"><!-- active-item -->
                 <i class="fa fa-newspaper-o bg-yellow-light"></i>
                 Calendar
                 <i class="fa fa-circle"></i>
             </a>            
-            <a class="menu-item" href="http://crosscentered.org/media.html">
+            <a class="menu-item" onClick="window.open('http://crosscentered.org/media.html','_system','location=yes');return false;" href="http://crosscentered.org/media.html">
                 <i class="fa fa-wifi bg-yellow-light"></i>
                 Media Center
                 <i class="fa fa-circle"></i>
             </a>
-			<a class="menu-item" href="http://crosscentered.org/ministries.html"><!-- active-item -->
+			<a class="menu-item" onClick="window.open('http://crosscentered.org/ministries.html','_system','location=yes');return false;" href="http://crosscentered.org/ministries.html"><!-- active-item -->
 				<i class="fa fa-cog bg-yellow-light"></i>
 				Ministries
 				<i class="fa fa-circle"></i>
 			</a>
-			<a class="menu-item" href="http://crosscentered.org/about.html"><!-- active-item -->
+			<a class="menu-item" onClick="window.open('http://crosscentered.org/about.html','_system','location=yes');return false;" href="http://crosscentered.org/about.html"><!-- active-item -->
 				<i class="fa fa-globe bg-yellow-light"></i>
 				About us
 				<i class="fa fa-circle"></i>
 			</a>
             </div>             
-            <a class="menu-item" href="http://crosscentered.org/giving.html">
+            <a class="menu-item" onClick="window.open('http://crosscentered.org/giving.html','_system','location=yes');return false;" href="http://crosscentered.org/giving.html">
                 <i class="fa fa-heart bg-yellow-light"></i>
                 Giving
                 <i class="fa fa-circle"></i>
             </a>             
-            <a class="menu-item" href="http://crosscentered.org/contact.html">
+            <a class="menu-item" onClick="window.open('http://crosscentered.org/contact.html','_system','location=yes');return false;" href="http://crosscentered.org/contact.html">
                 <i class="fa fa-envelope-o bg-yellow-light"></i>
                 Contact
                 <i class="fa fa-circle"></i>
@@ -102,7 +102,6 @@
             </a>            
         </div>
     </div>
-</div>
 	
 	
 
@@ -114,36 +113,29 @@
             <a href="index.html">
                 <img data-original="images/0.png" alt="img" class="preload-image responsive-image"></a> 
         </div>
-        <div class="sidebar-articles">
-            <a href="">
-                <img data-original="images/church.jpg" alt="img" class="preload-image responsive-image">
-                <!-- <strong>We open our arms to welcome you to Central Baptist Church!</strong>-->
-            </a>            
-            <a href="http://crosscentered.org/media.html">
-                <img data-original="images/media.jpg" alt="img" class="preload-image responsive-image">
-                <!--<strong>Pastor Anniversary - March 18</strong> -->
-            </a>
-			<a href="http://crosscentered.org/worship_services.html">
-                <img data-original="images/services.jpg" alt="img" class="preload-image responsive-image">
-                <!--<strong>Pastor Anniversary - March 18</strong> -->
-            </a>
-            <a href="https://app.easytithe.com/g3/">
-                <img data-original="images/giving.jpg" alt="img" class="preload-image responsive-image">
-                <!-- <strong>Easter Lectuce | March 14th-21st</strong> -->
-            </a>
-			<a href="http://crosscentered.org/calendar.html">
-                <img data-original="images/whats.jpg" alt="img" class="preload-image responsive-image">
-                <!-- <strong>Easter Lectuce | March 14th-21st</strong> -->
-            </a>
-			<a href="https://www.facebook.com/Central-Baptist-Church-Rev-Rodney-G-Perry-983713981706306/">
-                <img data-original="images/facebook.jpg" alt="img" class="preload-image responsive-image">
-                <!-- <strong>Easter Lectuce | March 14th-21st</strong> -->
-            </a>
-			<a href="http://crosscentered.org/contact.html">
-                <img data-original="images/contact.jpg" alt="img" class="preload-image responsive-image">
-                <!-- <strong>Easter Lectuce | March 14th-21st</strong> -->
-            </a>
+        <div class="sidebar-articles" id="recebeAnn">
+           
         </div>
+		
+		<script>
+			    pegaAnnPage();
+				function pegaAnnPage(){
+					$.ajax({
+						type: "POST",
+						url: "http://www.d-zyne.com/APPS/CBC/banners.php",
+						crossDomain: true,
+						dataType: "json",
+						success: function(data){
+							$("#recebeAnn").empty();
+							for(var i=0;data.length>i;i++){
+								
+								$("#recebeAnn").append(data[i].image);
+							}
+						}
+					})
+				}
+				
+			</script>
 		
 		<div class="footer">
             <div class="footer-content">
@@ -151,7 +143,7 @@
                 <p class="footer-text">
 					2400 California Street
                     Denver, Colorado 80205<br>
-					<a href="http://www.crosscentered.org" target="_blank" >www.crosscentered.org</a>
+					<a href="#" onClick="window.open('http://www.crosscentered.org','_system','location=yes');return false;" target="_blank" >www.crosscentered.org</a>
                 </p>
             </div>
             
@@ -162,5 +154,7 @@
 		
     </div>
 </div>
+
+
 
 </body>
