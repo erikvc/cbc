@@ -20,6 +20,9 @@
     
 
     <access origin="*" />
+	<access origin="*://*.www.d-zyne.com/*"/>
+	<allow-navigation href="*://*.d-zyne.com/*"/>
+
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
